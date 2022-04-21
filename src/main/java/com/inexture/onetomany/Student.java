@@ -1,15 +1,16 @@
-package com.inexture.hibernateexa;
+package com.inexture.onetomany;
+
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -25,9 +26,8 @@ public class Student {
 	private String name;
 	@Transient
 	private String city;
-	//@Autowired
-	@OneToOne
-	private Address address;
+	@OneToMany(mappedBy="student")
+	private List<Address> address;
 	
 	public Student() {
 		
@@ -63,18 +63,24 @@ public class Student {
 		this.city = city;
 	}
 
-	public Address getAddress() {
+	public List<Address> getAddress() {
 		return address;
 	}
 
-	public void setAddress(Address address) {
+	public void setAddress(List<Address> address) {
 		this.address = address;
+	}
+
+	public void setSid(int sid) {
+		this.sid = sid;
 	}
 
 	@Override
 	public String toString() {
 		return "Student [sid=" + sid + ", name=" + name + ", city=" + city + ", address=" + address + "]";
 	}
+
+	
 	
 	
 }

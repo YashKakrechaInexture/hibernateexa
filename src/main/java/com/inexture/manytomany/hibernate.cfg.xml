@@ -14,8 +14,8 @@
 		<property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
 		<property name="hbm2ddl.auto">create</property>
 		<property name="show_sql">true</property>
-		<mapping class="com.inexture.hibernateexa.Student"/>
-		<mapping class="com.inexture.hibernateexa.Address"/>
+		<mapping class="com.inexture.manytomany.Employee"/>
+		<mapping class="com.inexture.manytomany.Project"/>
 		<!-- <mapping resource="com/inexture/hibernateexa/hiberconfig.xml"/> -->
 		
 	</session-factory>

@@ -4,6 +4,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * Hello world!
@@ -19,8 +21,27 @@ public class App
         
         System.out.println(factory);
         
-//        Student s1 = new Student(101,"yash","ahmedabad");
-//        Student s2 = new Student(105,"abc","ahmedabad");
+//        @SuppressWarnings("resource")
+//        ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");  
+//        
+//        Student s1 = (Student)context.getBean("student");
+//        s1.setName("def");
+//        s1.setCity("ahmedabad");
+//        
+//        Address a1 = (Address)context.getBean("address");
+//        a1.setHome("107");
+//        a1.setCountry("india");
+//        s1.setAddress(a1);
+//        
+//        Student s2 = (Student)context.getBean("student");
+//        s2.setName("pqr");
+//        s2.setCity("ahmedabad");
+//        
+//        Address a2 = (Address)context.getBean("address");
+//        a2.setHome("108");
+//        a2.setCountry("india");
+//        s2.setAddress(a2);
+        
 //        
 //        System.out.println(s1);
 //        System.out.println(s2);
@@ -38,12 +59,14 @@ public class App
 //        session.beginTransaction();
 //        session.save(s1);
 //        session.save(s2);
+//        session.save(a1);
+//        session.save(a2);
 //        session.getTransaction().commit();
         
-        Student s1 = (Student)session.get(Student.class, 7);
+        Student s1 = (Student)session.get(Student.class, 1);
         System.out.println(s1);
         
-        Student s2 = (Student)session.load(Student.class, 8);
+        Student s2 = (Student)session.load(Student.class, 2);
         System.out.println(s2);
         
         
