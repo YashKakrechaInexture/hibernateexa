@@ -3,6 +3,7 @@ package com.inexture.manytomany;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,7 +20,7 @@ public class Employee {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int eid;
 	private String empname;
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	private List<Project> projects;
 	
 	public Employee() {
@@ -51,7 +52,17 @@ public class Employee {
 
 	@Override
 	public String toString() {
-		return "Employee [eid=" + eid + ", empname=" + empname + ", projects=" + projects + "]";
+		
+		String list = "";
+		
+		for(Project p : projects) {
+			if(!list.equals("")) {
+				list += ", ";
+			}
+			list += p.getPid() + " : " + p.getPname();
+		}
+		
+		return "Employee [eid=" + eid + ", empname=" + empname + ", projects=[" + list + "]";
 	}
 
 	public List<Project> getProjects() {

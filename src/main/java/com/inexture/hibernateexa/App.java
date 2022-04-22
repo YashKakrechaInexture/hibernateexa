@@ -63,11 +63,13 @@ public class App
 //        session.save(a2);
 //        session.getTransaction().commit();
         
-        Student s1 = (Student)session.get(Student.class, 1);
-        System.out.println(s1);
+//        Student s1 = (Student)session.get(Student.class, 1);
+//        System.out.println(s1);
+//        
+//        Student s2 = (Student)session.load(Student.class, 2);
+//        System.out.println(s2);
         
-        Student s2 = (Student)session.load(Student.class, 2);
-        System.out.println(s2);
+        
         
         
         session.close();
