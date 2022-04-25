@@ -18,9 +18,8 @@
 
 	<context:annotation-config />
 	
-	<context:component-scan base-package="com.inexture.hibernateexa"></context:component-scan>
-<!-- 	<context:component-scan base-package="com.inexture.onetomany"></context:component-scan> -->
-	<!-- <context:component-scan base-package="com.inexture.manytomany"></context:component-scan> -->
+	<context:component-scan base-package="com.inexture.jpaexa"></context:component-scan>
+	
 	<util:list id="list" scope="prototype"></util:list>
 	
 </beans>

@@ -1,6 +1,5 @@
-package com.inexture.hibernateexa;
+package com.inexture.jpaexa;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,14 +9,13 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
 @Scope("prototype")
 @Entity
-@Table(name="myStudents")
+@Table(name="myStudents2")
 public class Student {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -27,7 +25,7 @@ public class Student {
 	@Transient
 	private String city;
 	//@Autowired
-	@OneToOne(cascade = CascadeType.ALL, orphanRemoval=true)
+	@OneToOne
 	private Address address;
 	
 	public Student() {

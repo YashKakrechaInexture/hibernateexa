@@ -21,15 +21,15 @@ public class App
         
         System.out.println(factory);
         
-//        @SuppressWarnings("resource")
-//        ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");  
-//        
+        @SuppressWarnings("resource")
+        ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");  
+        
 //        Student s1 = (Student)context.getBean("student");
-//        s1.setName("def");
+//        s1.setName("dummy");
 //        s1.setCity("ahmedabad");
 //        
 //        Address a1 = (Address)context.getBean("address");
-//        a1.setHome("107");
+//        a1.setHome("171");
 //        a1.setCountry("india");
 //        s1.setAddress(a1);
 //        
@@ -41,7 +41,7 @@ public class App
 //        a2.setHome("108");
 //        a2.setCountry("india");
 //        s2.setAddress(a2);
-        
+//        
 //        
 //        System.out.println(s1);
 //        System.out.println(s2);
@@ -56,12 +56,15 @@ public class App
 //        session.save(s2);
 //        tx2.commit();
         
-//        session.beginTransaction();
+        session.beginTransaction();
+        
+        Student s5 = (Student)session.get(Student.class, 19);
 //        session.save(s1);
 //        session.save(s2);
 //        session.save(a1);
 //        session.save(a2);
-//        session.getTransaction().commit();
+        session.delete(s5);
+        session.getTransaction().commit();
         
 //        Student s1 = (Student)session.get(Student.class, 1);
 //        System.out.println(s1);
